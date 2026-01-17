@@ -27,10 +27,19 @@
   <section class="hero">
     <div class="container hero__inner">
       <h1 class="hero__title">Java 전공반 강동현입니다!</h1>
-      <p class="hero__subtitle">Back-End 개발 스택 학습 희망자</p>
-      <p class="hero__desc">
-        친해지는 법: 말 걸어주면 바로 친해집니다. 안물어요🐶
-      </p>
+
+      <!-- ✅ 펼치기/접기 버튼 -->
+      <button id="heroToggle" class="hero-toggle" type="button" aria-expanded="false">
+        + 소개 더보기
+      </button>
+
+      <!-- ✅ 접히는 영역 -->
+      <div id="heroMore" class="hero-more" hidden>
+        <p class="hero__subtitle">Back-End 개발 스택 학습 희망자</p>
+        <p class="hero__desc">
+          친해지는 법: 말 걸어주면 바로 친해집니다. 안물어요🐶
+        </p>
+      </div>
     </div>
   </section>
 

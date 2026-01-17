@@ -18,7 +18,26 @@ btn.addEventListener("click", () => {
 });
 
 // =====================
-// 2) 탭 전환
+// 2) 히어로 펼치기/접기
+// =====================
+const heroToggle = document.getElementById("heroToggle");
+const heroMore = document.getElementById("heroMore");
+
+heroToggle.addEventListener("click", () => {
+  const expanded = heroToggle.getAttribute("aria-expanded") === "true";
+  heroToggle.setAttribute("aria-expanded", String(!expanded));
+
+  if (expanded) {
+    heroMore.hidden = true;
+    heroToggle.textContent = "+ 소개 더보기";
+  } else {
+    heroMore.hidden = false;
+    heroToggle.textContent = "- 접기";
+  }
+});
+
+// =====================
+// 3) 탭 전환
 // =====================
 const tabs = document.querySelectorAll(".tab");
 const titleEl = document.getElementById("contentTitle");
@@ -111,8 +130,8 @@ function setActiveTab(tabKey) {
   bodyEl.innerHTML = templates[tabKey];
 }
 
-tabs.forEach(t => {
-  t.addEventListener("click", () => setActiveTab(t.dataset.tab));
-});
+tabs.forEach(t =>
+  t.addEventListener("click", () => setActiveTab(t.dataset.tab))
+);
 
 setActiveTab("intro");
