@@ -1,0 +1,240 @@
+:root{
+  --bg: #f6f8ff;
+  --surface: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+
+  --primary: #2563eb;
+
+  --border: #e5e7eb;
+  --shadow: 0 10px 25px rgba(0,0,0,0.06);
+  --radius: 18px;
+
+  --early: #22c55e;
+  --mid: #f59e0b;
+  --late: #3b82f6;
+
+  /* ✅ 목표 원 안 글자색(항상 검정) */
+  --goalText: #0b1220;
+}
+
+body.dark{
+  --bg: #0b1220;
+  --surface: #111a2e;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --border: #223055;
+}
+
+body{
+  margin: 0;
+  font-family: system-ui, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+.container{
+  width: min(980px, 92%);
+  margin: 0 auto;
+}
+
+.topbar{
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar__inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+.brand{
+  font-weight: 900;
+}
+
+/* ===== 탭 버튼 ===== */
+.tabs{
+  display: flex;
+  gap: 8px;
+}
+
+.tab{
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  cursor: pointer;
+
+  /* ✅ 기본(라이트모드)은 기존 그대로: 글자색 지정 안 함 */
+}
+
+/* ✅ 활성화 탭(항상 파란 배경 + 흰 글자) */
+.tab.is-active{
+  background: var(--primary);
+  color: white;
+}
+
+/* ✅ 다크모드에서 "비활성 탭 글자"를 흰색으로 강제 + 버튼 배경도 자연스럽게 */
+body.dark .tab{
+  color: #ffffff;                 /* <- 요청 1 핵심 */
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.18);
+}
+
+body.dark .tab:hover{
+  background: rgba(255,255,255,0.10);
+}
+
+/* ✅ 다크모드에서도 활성화 탭은 파란 배경 + 흰 글자 유지 */
+body.dark .tab.is-active{
+  background: var(--primary);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+/* ===== 다크모드 버튼 ===== */
+.btn{
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  cursor: pointer;
+  font-weight: 800;
+  color: var(--text);
+}
+
+/* 다크모드에서 버튼도 글자 흰색 계열로 보기 좋게 */
+body.dark .btn{
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.18);
+  color: #ffffff;
+}
+
+.hero{
+  padding: 32px 0;
+}
+
+.hero__inner{
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.hero__title{
+  font-size: 38px;
+  margin: 0;
+}
+
+.card{
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.card__title{
+  font-size: 26px;
+}
+
+.info-list{
+  list-style: none;
+  padding: 0;
+}
+
+.info-item{
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+/* ===== 관심사 4분할 ===== */
+.interest-grid-4{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.interest-card{
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.interest-img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.interest-body{
+  padding: 12px;
+}
+
+/* ===== 목표 동그라미 ===== */
+.goals{
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.goal{
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border: 1px solid var(--border);
+  transition: 0.2s;
+}
+
+.goal:hover{
+  transform: scale(1.07);
+}
+
+/* ✅ 원 안 글자: 항상 검정으로 고정 (다크모드에서도 선명) */
+.goal .stage{
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--goalText);         /* <- 요청 2 핵심 */
+}
+
+.goal .detail{
+  opacity: 0;
+  max-height: 0;
+  transition: 0.2s;
+  color: var(--goalText);         /* <- 요청 2 핵심 */
+}
+
+.goal:hover .detail{
+  opacity: 1;
+  max-height: 100px;
+}
+
+/* 시기별 색상 (원 배경은 옅은 색 유지 OK) */
+.goal--early{
+  background: #e8f5e9;
+  border-color: var(--early);
+}
+
+.goal--mid{
+  background: #fff3e0;
+  border-color: var(--mid);
+}
+
+.goal--late{
+  background: #e3f2fd;
+  border-color: var(--late);
+}
+
+@media (max-width: 760px){
+  .interest-grid-4{
+    grid-template-columns: 1fr;
+  }
+}

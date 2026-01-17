@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>강동현 | 자기소개</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="container topbar__inner">
+    <span class="brand">자기소개</span>
+
+    <nav class="tabs" aria-label="탭 메뉴">
+      <button class="tab is-active" type="button" data-tab="intro">소개</button>
+      <button class="tab" type="button" data-tab="interests">관심사</button>
+      <button class="tab" type="button" data-tab="goals">목표</button>
+    </nav>
+
+    <button id="themeToggle" class="btn" type="button" aria-pressed="false">
+      🌙 다크모드
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero__inner">
+      <h1 class="hero__title">Java 전공반 강동현입니다!</h1>
+      <p class="hero__subtitle">Back-End 개발 스택 학습 희망자</p>
+      <p class="hero__desc">
+        친해지는 법: 말 걸어주면 바로 친해집니다. 안물어요🐶
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="card">
+        <h2 id="contentTitle" class="card__title">소개</h2>
+        <div id="contentBody"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    © 2026 Kang Donghyun
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
